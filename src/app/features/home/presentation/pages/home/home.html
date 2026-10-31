@@ -1,0 +1,21 @@
+<div class="min-h-screen bg-slate-950 text-slate-200 antialiased selection:bg-violet-500/30 selection:text-white">
+  <!-- Fondo decorativo -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-40 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-violet-600/20 blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 h-[28rem] w-[28rem] rounded-full bg-indigo-600/15 blur-3xl"></div>
+    <div class="absolute bottom-0 -left-40 h-[24rem] w-[24rem] rounded-full bg-fuchsia-600/10 blur-3xl"></div>
+  </div>
+
+  <app-site-header />
+
+  <main>
+    <app-hero-section />
+    <app-description-general-card />
+    <app-list-function [functionsModel]="functionsModel" />
+    <!-- <app-how-it-works-section [steps]="steps" /> -->
+    <app-list-steps [steps]="steps" />
+    <app-cta-section />
+  </main>
+
+  <app-site-footer />
+</div>
