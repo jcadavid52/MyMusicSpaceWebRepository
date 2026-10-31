@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { SiteFooter } from '../../../../../layout/site-footer/site-footer';
-import { SiteHeader } from '../../../../../layout/site-header/site-header';
 import { DescriptionGeneralCard } from '../../components/description-general-card/description-general-card';
 import { CtaSection } from '../../components/cta-section/cta-section';
 import { HeroSection } from '../../components/hero-section/hero-section';
@@ -12,8 +10,6 @@ import { ListSteps } from '../../components/list-steps/list-steps';
 @Component({
   selector: 'app-home',
   imports: [
-    SiteHeader,
-    SiteFooter,
     HeroSection,
     DescriptionGeneralCard,
     CtaSection,
