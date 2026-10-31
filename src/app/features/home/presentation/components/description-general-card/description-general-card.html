@@ -1,0 +1,23 @@
+<section id="descripcion" class="mx-auto w-full max-w-7xl scroll-mt-36 px-4 py-16 sm:px-6 lg:px-8">
+  <div class="grid gap-10 rounded-3xl border border-white/5 bg-white/[0.02] p-8 sm:p-10 lg:grid-cols-5 lg:gap-16 lg:p-12">
+    <div class="lg:col-span-3">
+      <h2 class="text-sm font-semibold uppercase tracking-widest text-violet-400">Descripción general</h2>
+      <p class="mt-4 text-2xl font-medium leading-snug text-white sm:text-3xl">
+        Una aplicación para quien trata su música como un archivo vivo.
+      </p>
+      <p class="mt-5 text-base leading-relaxed text-slate-400">
+        MusicSpace es una aplicación web de gestión musical de uso personal. Su propósito es reunir
+        en una única interfaz todo el trabajo que rodea a una canción: su registro en la biblioteca,
+        su clasificación dentro de géneros definidos por el propio usuario, el texto completo de su
+        letra y su arreglo de acordes para guitarra.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-slate-400">
+        Además, incorpora traducción de letras al español desde ruso, francés e inglés, lo que permite
+        comprender y estudiar canciones en otros idiomas sin salir de la plataforma. El acceso está
+        protegido por un sistema de registro, de modo que cada usuario administra exclusivamente su
+        propio repertorio.
+      </p>
+    </div>
+    <app-description-general-list [descriptionGeneralCardItems]="descriptionGeneralCardItems" class="lg:col-span-2" />
+  </div>
+</section>

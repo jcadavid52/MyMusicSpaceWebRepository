@@ -1,0 +1,46 @@
+<section class="relative mx-auto w-full max-w-7xl px-4 pt-20 pb-16 sm:px-6 sm:pt-24 lg:px-8 lg:pt-28">
+  <div class="mx-auto max-w-3xl text-center">
+    <span class="inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-1 text-xs font-medium tracking-wide text-violet-300">
+      <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+      Plataforma de gestión musical personal
+    </span>
+
+    <h1 class="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+      El espacio donde tu música
+      <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent"> toma forma.</span>
+    </h1>
+
+    <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-400 sm:text-lg">
+      MusicSpace centraliza toda tu biblioteca musical en un solo lugar: administra tus canciones,
+      organízalas por géneros, conserva sus letras, tradúcelas al español y documenta los acordes
+      de guitarra de cada pieza.
+    </p>
+
+    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <button
+        type="button"
+        (click)="ctaClick.emit()"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-900/40 transition hover:from-violet-400 hover:to-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 sm:w-auto"
+      >
+        {{ ctaLabel() }}
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </button>
+
+      <a
+        href="#funciones"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 px-6 py-3 text-sm font-medium text-slate-300 transition hover:border-white/20 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400 sm:w-auto"
+      >
+        Conocer las funciones
+        <!-- <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg> -->
+      </a>
+    </div>
+
+    <p class="mt-4 text-xs text-slate-500">
+      Requiere registro. Tu biblioteca es privada y personal.
+    </p>
+  </div>
+</section>

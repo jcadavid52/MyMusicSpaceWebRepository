@@ -1,0 +1,5 @@
+<dl class="grid gap-6 self-center lg:col-span-2">
+    @for(cardItem of descriptionGeneralCardItems(); track cardItem.title) {
+        <app-description-general-card-item [descriptionGeneralCardItemModel]="cardItem" />
+    }
+</dl>

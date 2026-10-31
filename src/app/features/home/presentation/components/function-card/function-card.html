@@ -1,0 +1,12 @@
+<article
+    class="group rounded-2xl border border-white/5 bg-slate-900/40 p-6 transition duration-200 hover:-translate-y-0.5 hover:border-violet-400/30 hover:bg-slate-900/70">
+    <span
+        class="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-500/10 text-violet-300 transition-colors group-hover:bg-violet-500/20">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path [attr.d]="functionModel().icon" />
+        </svg>
+    </span>
+    <h3 class="mt-5 text-base font-semibold text-white">{{ functionModel().title }}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ functionModel().description }}</p>
+</article>
