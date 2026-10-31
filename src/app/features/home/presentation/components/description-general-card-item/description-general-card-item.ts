@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { DescriptionGeneralCardItemModel } from '../../../domain/models/home.models';
+import { DescriptionGeneralCardItemModel } from '../../../domain/models/home-models';
 
 @Component({
   selector: 'app-description-general-card-item',

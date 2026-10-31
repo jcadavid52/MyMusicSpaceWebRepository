@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { StepModel } from '../../../domain/models/home.models';
+import { StepModel } from '../../../domain/models/home-models';
 import { StepCard } from '../step-card/step-card';
 
 @Component({

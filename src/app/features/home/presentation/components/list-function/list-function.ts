@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { FunctionModel } from '../../../domain/models/home.models';
+import { FunctionModel } from '../../../domain/models/home-models';
 import { FunctionCard } from '../function-card/function-card';
 
 @Component({
