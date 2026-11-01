@@ -4,7 +4,7 @@ import { DescriptionGeneralCard } from '../../components/description-general-car
 import { CtaSection } from '../../components/cta-section/cta-section';
 import { HeroSection } from '../../components/hero-section/hero-section';
 import { HomeNav } from '../../components/home-nav/home-nav';
-import { FunctionModel, StepModel } from '../../../domain/models/home.models';
+import { FunctionModel, StepModel } from '../../../domain/models/home-models';
 import { ListFunction } from '../../components/list-function/list-function';
 import { ListSteps } from '../../components/list-steps/list-steps';
 

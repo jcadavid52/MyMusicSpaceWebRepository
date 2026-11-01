@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DescriptionGeneralList } from '../description-general-list/description-general-list';
-import {  DescriptionGeneralCardItemModel } from '../../../domain/models/home.models';
+import {  DescriptionGeneralCardItemModel } from '../../../domain/models/home-models';
 
 @Component({
   selector: 'app-description-general-card',
