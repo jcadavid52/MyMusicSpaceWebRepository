@@ -5,7 +5,7 @@ export const environment: EnvironmentModel = {
     apiUrl: 'http://localhost:6001',
     keycloak: {
         url: 'http://localhost:8080',
-        realm: 'MiApp-Realm',
-        clientId: 'dotnet-api'
+        realm: 'MusicSpaceWeb',
+        clientId: 'music-space-keycloak-client'
     }
 }
