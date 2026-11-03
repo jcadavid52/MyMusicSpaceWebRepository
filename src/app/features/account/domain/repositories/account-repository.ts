@@ -7,4 +7,7 @@ export const ACCOUNT_REPOSITORY = new InjectionToken<IAccountRepository>('ACCOUN
 export interface IAccountRepository {
     register(): Observable<void>;
     login(): Observable<SessionModel>;
+    getSession(): SessionModel | null;
+    getStatusSession(): Observable<boolean>;
+    closeSession(): Observable<void>;
 }

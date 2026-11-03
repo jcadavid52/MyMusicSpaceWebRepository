@@ -16,8 +16,16 @@
 
     <div class="flex items-center gap-2">
 
-      <app-login-button />
-      <app-register-button />
+      @if(this.isLoggedIn()){
+        <span class="text-sm text-slate-400">Bienvenido, {{this.session()?.user?.name}}</span>
+        <app-close-session-button />
+      }@else {
+        <app-register-button />
+        <app-login-button />
+      }
+      
     </div>
   </div>
+
+  
 </header>

@@ -1,13 +1,14 @@
-import { Injectable } from "@angular/core";
+import { computed, Injectable, signal } from "@angular/core";
 import { environment } from "../../../../../environments/environment-local";
 import Keycloak, { KeycloakError, KeycloakTokenParsed } from "keycloak-js";
 import { AccountError, AccountErrorCode } from "../../../domain/errors/account-error";
-import { catchError, defer, from, Observable, throwError } from "rxjs";
+import { catchError, defer, from, Observable, of, throwError } from "rxjs";
 import { SessionModel } from "../../../domain/model/account-model";
 
 
 @Injectable({ providedIn: 'root' })
 export class KeycloakService {
+
 
     private readonly keycloak = new Keycloak({
         url: environment.keycloak.url,
@@ -79,6 +80,25 @@ export class KeycloakService {
             expirationAccessToken: new Date(Number(tokenData?.exp ?? 0) * 1000),
             expirationRefreshToken: new Date(Number(refreshData?.exp ?? 0) * 1000)
         };
+    }
+
+    getStatusSession(): Observable<boolean> {
+        return defer(() => {
+            if (!this.keycloak.didInitialize) {
+                return throwError(() => new AccountError('KEYCLOAK_NOT_INITIALIZED'));
+            }
+            return of(this.keycloak.authenticated ?? false);
+        });
+    }
+
+    closeSession(): Observable<void> {
+        return defer(() => {
+            if (!this.keycloak.didInitialize) {
+                return throwError(() => new AccountError('KEYCLOAK_NOT_INITIALIZED'));
+            }
+            this.keycloak.logout();
+            return of(undefined);
+        });
     }
 
     private obtenerRol(tokenData: KeycloakTokenParsed | undefined): string {
