@@ -7,6 +7,7 @@ const ACCOUNT_ERROR_MESSAGES: Record<AccountErrorCode, string> = {
     'No pudimos conectar con el servicio de cuentas. Revisa tu conexión e inténtalo de nuevo.',
   REGISTRATION_FAILED: 'No se pudo iniciar el registro. Inténtalo de nuevo en unos segundos.',
   AUTH_CALLBACK_ERROR: 'No se pudo completar la autenticación. Inténtalo de nuevo.',
+  LOGIN_FAILED: 'No se pudo iniciar sesión. Inténtalo de nuevo en unos segundos.',
   UNKNOWN: 'Ocurrió un error inesperado. Inténtalo de nuevo.',
 };
 
