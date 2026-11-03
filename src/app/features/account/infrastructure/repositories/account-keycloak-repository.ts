@@ -6,7 +6,6 @@ import { SessionModel } from '../../domain/model/account-model';
 
 @Injectable({ providedIn: 'root' })
 export class AccountKeycloakRepository implements IAccountRepository {
-
   private readonly keycloakService = inject(KeycloakService);
 
   register(): Observable<void> {
@@ -27,5 +26,17 @@ export class AccountKeycloakRepository implements IAccountRepository {
         }
       })
     );
+  }
+
+  getSession(): SessionModel | null {
+    return this.keycloakService.getSession();
+  }
+
+  getStatusSession(): Observable<boolean> {
+    return this.keycloakService.getStatusSession();
+  }
+
+  closeSession(): Observable<void> {
+    return this.keycloakService.closeSession();
   }
 }
