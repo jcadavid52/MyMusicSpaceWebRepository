@@ -3,6 +3,7 @@ export type AccountErrorCode =
   | 'KEYCLOAK_UNREACHABLE'
   | 'REGISTRATION_FAILED'
   | 'AUTH_CALLBACK_ERROR'
+  | 'LOGIN_FAILED'
   | 'UNKNOWN';
 
 export class AccountError extends Error {
