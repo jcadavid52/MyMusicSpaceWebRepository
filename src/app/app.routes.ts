@@ -11,6 +11,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/home/home.routes').then((m) => m.homeRoutes),
       },
+      {
+        path: 'add-song',
+        loadChildren: () =>
+          import('./features/song/song.routes').then((m) => m.songRoutes),
+      },
     ],
   },
 ];

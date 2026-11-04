@@ -1,10 +1,12 @@
 import { ApplicationConfig, inject, provideAppInitializer, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+import { spotifyAuthInterceptor } from './core/interceptors/spotify-auth-interceptor';
 import { infrastructureProviders } from './features/account/infrastructure/providers/infrastructure-provider';
-import { AccountKeycloakRepository } from './features/account/infrastructure/repositories/account-keycloak-repository';
 import { KeycloakService } from './features/account/infrastructure/services/keycloak/keycloak-service';
+import { songInfrastructureProviders } from './features/song/infrastructure/providers/song-infrastructure-provider';
 
 
 export const appConfig: ApplicationConfig = {
@@ -12,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(withInterceptors([spotifyAuthInterceptor])),
     provideAppInitializer(() => {
       const keycloakService = inject(KeycloakService);
       
@@ -27,6 +30,7 @@ export const appConfig: ApplicationConfig = {
         }
       );
     }),
-    ...infrastructureProviders
+    ...infrastructureProviders,
+    ...songInfrastructureProviders
   ]
 };

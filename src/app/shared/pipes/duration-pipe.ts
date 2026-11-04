@@ -1,0 +1,16 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'appDuration' })
+export class DurationPipe implements PipeTransform {
+  transform(durationMs: number | null | undefined): string {
+    if (durationMs == null || durationMs < 0) {
+      return '--:--';
+    }
+
+    const totalSeconds = Math.floor(durationMs / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+}

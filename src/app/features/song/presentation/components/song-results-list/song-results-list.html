@@ -1,0 +1,14 @@
+<section class="mt-10" aria-live="polite">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-violet-400">Resultados</h2>
+    <p class="text-xs text-slate-500">
+      Mostrando {{ songs().length }} de {{ total() }} coincidencias
+    </p>
+  </div>
+
+  <div class="mt-4 grid gap-4 sm:grid-cols-2">
+    @for (song of songs(); track song.id) {
+      <app-song-result-card [song]="song" />
+    }
+  </div>
+</section>

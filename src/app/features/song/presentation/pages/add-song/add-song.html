@@ -1,0 +1,81 @@
+<section class="mx-auto w-full max-w-7xl px-4 pt-14 pb-16 sm:px-6 lg:px-8">
+  <div class="max-w-3xl">
+    <span
+      class="inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-1 text-xs font-medium tracking-wide text-violet-300"
+    >
+      <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+      Spotify
+    </span>
+
+    <h1 class="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      Busca una canción
+      <span
+        class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent"
+      >
+        para agregar.
+      </span>
+    </h1>
+
+    <p class="mt-4 text-base leading-relaxed text-slate-400 sm:text-lg">
+      Encuentra el tema en Spotify y revisa su información. Muy pronto podrás completar la
+      letra, la traducción y los acordes desde aquí.
+    </p>
+  </div>
+
+  <app-song-search-bar [loading]="loading()" (search)="onSearch($event)" />
+
+  @if (errorMessage(); as error) {
+    <div
+      role="alert"
+      class="mt-6 flex items-start gap-3 rounded-2xl border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-200"
+    >
+      <svg
+        class="mt-0.5 h-5 w-5 shrink-0"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 8v5M12 16h.01" />
+      </svg>
+      <p>{{ error }}</p>
+    </div>
+  }
+
+  @if (loading()) {
+    <section class="mt-10" role="status" aria-live="polite" aria-label="Buscando canciones">
+      <div class="h-4 w-32 animate-pulse rounded bg-slate-800"></div>
+
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        @for (item of [1, 2, 3, 4]; track item) {
+          <div class="flex items-center gap-4 rounded-2xl border border-white/5 bg-slate-900/40 p-4">
+            <div class="h-20 w-20 shrink-0 animate-pulse rounded-xl bg-slate-800"></div>
+            <div class="flex-1 space-y-2">
+              <div class="h-4 w-3/4 animate-pulse rounded bg-slate-800"></div>
+              <div class="h-3 w-1/2 animate-pulse rounded bg-slate-800"></div>
+              <div class="h-3 w-2/3 animate-pulse rounded bg-slate-800"></div>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+  } @else if (hasSearched() && !errorMessage()) {
+    @if (songs().length > 0) {
+      <app-song-results-list [songs]="songs()" [total]="total()" />
+    } @else {
+      <app-song-empty-state
+        title="Sin resultados"
+        description="No encontramos canciones para «{{ lastQuery() }}». Prueba con otro título o artista."
+      />
+    }
+  } @else if (!hasSearched() && !errorMessage()) {
+    <app-song-empty-state
+      title="Empieza con una búsqueda"
+      description="Escribe el nombre de una canción o artista. Los resultados llegarán desde Spotify en segundos."
+    />
+  }
+</section>

@@ -1,6 +1,6 @@
 <header class="border-b border-white/5 bg-slate-950/80 backdrop-blur">
   <div class="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-    <a href="#"
+    <a routerLink="/"
       class="flex items-center gap-2.5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">
       <span
         class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 shadow-lg shadow-violet-900/40">
@@ -16,8 +16,22 @@
 
     <div class="flex items-center gap-2">
 
+      <a
+        routerLink="/add-song"
+        routerLinkActive="border-violet-400/40 bg-white/5 text-white"
+        aria-label="Agregar canción"
+        title="Agregar canción"
+        class="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-violet-400/40 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
+        <span class="hidden md:inline">Agregar canción</span>
+      </a>
+
       @if(this.isLoggedIn()){
-        <span class="text-sm text-slate-400">Bienvenido, {{this.session()?.user?.name}}</span>
+        <span class="hidden max-w-40 truncate text-sm text-slate-400 sm:inline-block">Bienvenido, {{this.session()?.user?.name}}</span>
         <app-close-session-button />
       }@else {
         <app-register-button />

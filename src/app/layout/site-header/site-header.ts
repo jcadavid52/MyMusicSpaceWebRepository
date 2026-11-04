@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { RegisterButton } from '../../features/account/presentation/components/register-button/register-button';
 import { LoginButton } from '../../features/account/presentation/components/login-button/login-button';
 import { GetStatusSessionUseCase } from '../../features/account/application/use-cases/account/get-status-session';
@@ -10,7 +11,7 @@ import { SessionModel } from '../../features/account/domain/model/account-model'
 
 @Component({
   selector: 'app-site-header',
-  imports: [RegisterButton, LoginButton, CloseSessionButton],
+  imports: [RegisterButton, LoginButton, CloseSessionButton, RouterLink, RouterLinkActive],
   templateUrl: './site-header.html',
   styleUrl: './site-header.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
