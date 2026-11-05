@@ -12,7 +12,7 @@ export const routes: Routes = [
           import('./features/home/home.routes').then((m) => m.homeRoutes),
       },
       {
-        path: 'add-song',
+        path: 'song',
         loadChildren: () =>
           import('./features/song/song.routes').then((m) => m.songRoutes),
       },

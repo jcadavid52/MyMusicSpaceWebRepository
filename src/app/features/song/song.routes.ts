@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 
 export const songRoutes: Routes = [
   {
-    path: '',
+    path: 'search',
     loadComponent: () =>
-      import('./presentation/pages/add-song/add-song').then((m) => m.AddSong),
+      import('./presentation/pages/search-song/search-song').then((m) => m.SearchSong),
   },
 ];

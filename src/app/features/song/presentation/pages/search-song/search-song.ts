@@ -9,14 +9,14 @@ import { SongSearchBar } from '../../components/song-search-bar/song-search-bar'
 import { toSongErrorMessage } from '../../mappers/song-error-message';
 
 @Component({
-  selector: 'app-add-song',
+  selector: 'app-search-song',
   imports: [SongSearchBar, SongResultsList, SongEmptyState],
-  templateUrl: './add-song.html',
-  styleUrl: './add-song.css',
+  templateUrl: './search-song.html',
+  styleUrl: './search-song.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
 })
-export class AddSong {
+export class SearchSong {
   private readonly searchSong = inject(SearchSongUseCase);
   private readonly destroyRef = inject(DestroyRef);
   private readonly searchTerms = new Subject<string>();
