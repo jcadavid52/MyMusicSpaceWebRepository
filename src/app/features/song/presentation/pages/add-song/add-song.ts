@@ -51,7 +51,6 @@ export class AddSong {
       .subscribe((response) => {
         this.loading.set(false);
         this.hasSearched.set(true);
-
         if (response) {
           this.songs.set(response.items);
           this.total.set(response.total);

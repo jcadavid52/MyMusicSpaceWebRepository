@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, computed, input, output, signal } f
 })
 export class SongSearchBar {
   readonly loading = input(false);
-  readonly search = output<string>();
+  readonly searchRequested = output<string>();
 
   protected readonly query = signal('');
   protected readonly canSearch = computed(
@@ -21,11 +21,12 @@ export class SongSearchBar {
   protected onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.query.set(target.value);
+    this.emitSearch(target.value);
   }
 
   protected onSubmit(event: Event): void {
-    event.preventDefault();
-    this.emitSearch(this.query());
+      event.preventDefault();
+      this.emitSearch(this.query());
   }
 
   protected onSuggestion(term: string): void {
@@ -43,6 +44,6 @@ export class SongSearchBar {
       return;
     }
 
-    this.search.emit(value);
+    this.searchRequested.emit(value);
   }
 }

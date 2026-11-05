@@ -22,7 +22,7 @@
     </p>
   </div>
 
-  <app-song-search-bar [loading]="loading()" (search)="onSearch($event)" />
+  <app-song-search-bar [loading]="loading()" (searchRequested)="onSearch($event)" />
 
   @if (errorMessage(); as error) {
     <div
