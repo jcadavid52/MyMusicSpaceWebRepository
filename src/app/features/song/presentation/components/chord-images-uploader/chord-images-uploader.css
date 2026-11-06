@@ -1,0 +1,5 @@
+.uploader-drop {
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
