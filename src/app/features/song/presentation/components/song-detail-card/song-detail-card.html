@@ -1,0 +1,83 @@
+<article
+  class="overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 shadow-lg shadow-slate-950/30"
+>
+  <div class="relative aspect-square w-full overflow-hidden bg-slate-800">
+    @if (song().album.imageUrl; as imageUrl) {
+      <img
+        [src]="imageUrl"
+        [alt]="'Portada de ' + song().album.name"
+        class="h-full w-full object-cover"
+      />
+    } @else {
+      <span class="flex h-full w-full items-center justify-center text-slate-600">
+        <svg
+          class="h-14 w-14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+      </span>
+    }
+
+    <span
+      class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-950/70 px-2.5 py-1 text-[11px] font-medium text-emerald-300 backdrop-blur"
+    >
+      <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+      Spotify
+    </span>
+  </div>
+
+  <div class="p-5">
+    <h2 class="text-xl font-semibold leading-tight text-white" [title]="song().name">
+      {{ song().name }}
+    </h2>
+
+    <p class="mt-1 text-sm text-slate-400" [title]="song().artists.join(', ')">
+      {{ song().artists.join(' · ') }}
+    </p>
+
+    <dl class="mt-4 space-y-2 text-xs">
+      <div class="flex items-center justify-between gap-3">
+        <dt class="text-slate-500">Álbum</dt>
+        <dd class="truncate text-right text-slate-300" [title]="song().album.name">
+          {{ song().album.name }}
+        </dd>
+      </div>
+      <div class="flex items-center justify-between gap-3">
+        <dt class="text-slate-500">Duración</dt>
+        <dd class="text-slate-300">{{ song().durationMs | appDuration }}</dd>
+      </div>
+    </dl>
+
+    <a
+      [href]="song().spotifyUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-emerald-400/40 hover:bg-emerald-500/10 hover:text-emerald-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400"
+    >
+      <svg
+        class="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M14 3h7v7" />
+        <path d="M10 14 21 3" />
+        <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+      </svg>
+      Abrir en Spotify
+    </a>
+  </div>
+</article>

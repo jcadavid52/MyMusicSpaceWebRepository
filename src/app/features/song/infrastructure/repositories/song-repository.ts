@@ -32,6 +32,37 @@ export class SongRepository implements ISongRepository {
         );
     }
 
+    getById(spotifyId: string): Observable<SongModel> {
+        return this.spotifyService.getTrack(spotifyId).pipe(
+            map((track) => this.toSongModel(track)),
+            catchError((error: unknown) => throwError(() => this.mapTrackError(error))),
+        );
+    }
+
+    private mapTrackError(error: unknown): SongError {
+        if (error instanceof SongError) {
+            return error;
+        }
+
+        if (error instanceof HttpErrorResponse) {
+            if (error.status === 404) {
+                return new SongError('SONG_NOT_FOUND', error);
+            }
+
+            if (error.status === 401 || error.status === 403) {
+                return new SongError('SPOTIFY_UNAUTHORIZED', error);
+            }
+
+            if (error.status === 429) {
+                return new SongError('SPOTIFY_RATE_LIMITED', error);
+            }
+
+            return new SongError('SPOTIFY_TRACK_FAILED', error);
+        }
+
+        return new SongError('UNKNOWN', error);
+    }
+
     private mapError(error: unknown): SongError {
         if (error instanceof SongError) {
             return error;

@@ -3,7 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../../../../../environments/environment-local";
 import { SearchSongQuery } from "../../../domain/model/song-model";
-import { SpotifySearchResponse } from "./spotify-model";
+import { SpotifySearchResponse, SpotifyTrack } from "./spotify-model";
 
 @Injectable({ providedIn: 'root' })
 export class SpotifyService {
@@ -19,6 +19,12 @@ export class SpotifyService {
         return this.http.get<SpotifySearchResponse>(
             `${environment.spotify.apiUrl}/v1/search`,
             { params },
+        );
+    }
+
+    getTrack(spotifyId: string): Observable<SpotifyTrack> {
+        return this.http.get<SpotifyTrack>(
+            `${environment.spotify.apiUrl}/v1/tracks/${encodeURIComponent(spotifyId)}`,
         );
     }
 }

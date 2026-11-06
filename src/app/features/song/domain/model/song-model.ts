@@ -1,5 +1,13 @@
 export interface CreateSongRequest {
-    // TODO: definir los campos cuando exista el endpoint de creación en el backend
+    name: string;
+    artists: string[];
+    albumName: string;
+    albumImageUrl: string | null;
+    durationMs: number;
+    previewUrl: string | null;
+    spotifyUrl: string;
+    uri: string;
+    letters: string;
 }
 
 export interface SearchSongQuery {

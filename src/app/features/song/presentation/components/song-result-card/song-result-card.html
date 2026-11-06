@@ -49,7 +49,7 @@
       {{ song().durationMs | appDuration }}
     </p>
   </div>
-
+<div class="">
   <a
     [href]="song().spotifyUrl"
     target="_blank"
@@ -73,4 +73,27 @@
       <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
     </svg>
   </a>
+  <a
+    [routerLink]="['/song/add', song().id]"
+    [attr.aria-label]="'Agregar ' + song().name + ' a tu biblioteca'"
+    title="Agregar a tu biblioteca"
+    class="ml-2 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 text-slate-400 transition hover:border-violet-400/40 hover:bg-white/5 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400">
+<svg
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M16 5H3"/>
+      <path d="M11 12H3"/>
+      <path d="M16 19H3"/>
+      <path d="M18 9v6"/>
+      <path d="M21 12h-6"/>
+    </svg>
+  </a>
+</div>
 </article>
